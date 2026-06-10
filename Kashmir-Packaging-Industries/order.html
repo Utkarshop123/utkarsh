@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Request Quote | Kashmir Packaging Industries</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+.order-container{
+max-width:900px;
+margin:auto;
+}
+
+.order-form{
+background:var(--card);
+padding:40px;
+border-radius:20px;
+box-shadow:var(--shadow);
+}
+
+.form-group{
+margin-bottom:20px;
+}
+
+.form-group label{
+display:block;
+margin-bottom:8px;
+font-weight:600;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea{
+width:100%;
+padding:14px;
+border:none;
+border-radius:12px;
+background:var(--bg-light);
+color:white;
+font-size:15px;
+}
+
+.form-group textarea{
+resize:vertical;
+min-height:140px;
+}
+
+.action-buttons{
+display:flex;
+gap:15px;
+flex-wrap:wrap;
+margin-top:25px;
+}
+
+.contact-box{
+margin-top:40px;
+padding:25px;
+background:var(--card);
+border-radius:20px;
+text-align:center;
+box-shadow:var(--shadow);
+}
+
+.contact-box h3{
+margin-bottom:15px;
+}
+
+.contact-box p{
+color:var(--muted);
+margin-bottom:10px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header class="navbar">
+
+<div class="logo">
+KASHMIR <span>PACKAGING</span>
+</div>
+
+<nav>
+<a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="products.html">Products</a>
+<a href="order.html" class="active">Order</a>
+<a href="reviews.html">Reviews</a>
+<a href="contact.html">Contact</a>
+</nav>
+
+</header>
+
+<section class="hero" style="min-height:60vh; background: linear-gradient(rgba(11,14,17,0.85), rgba(11,14,17,0.85)), url('https://images.unsplash.com/photo-1616401784845-180882ba9ba8?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;">
+
+<div class="hero-content">
+
+<span class="tag">
+REQUEST A QUOTE
+</span>
+
+<h1>
+Place Your Order
+</h1>
+
+<p>
+Tell us your requirements and we will get back to you with the best solution for your packaging needs.
+</p>
+
+</div>
+
+</section>
+
+<section>
+
+<div class="order-container">
+
+<div class="section-heading">
+
+<h2>Order / Quote Request</h2>
+
+<p>
+Fill in your details below.
+</p>
+
+</div>
+
+<form class="order-form" onsubmit="handleOrderSubmission(event)">
+
+<div class="form-group">
+<label>Full Name</label>
+<input type="text" id="orderName" placeholder="Enter your name" required>
+</div>
+
+<div class="form-group">
+<label>Company Name</label>
+<input type="text" placeholder="Enter company name">
+</div>
+
+<div class="form-group">
+<label>Phone Number</label>
+<input type="tel" placeholder="Enter phone number">
+</div>
+
+<div class="form-group">
+<label>Email Address</label>
+<input type="email" placeholder="Enter email address">
+</div>
+
+<div class="form-group">
+<label>Select Product</label>
+<select id="orderProduct">
+<option>Packaging Strips</option>
+<option>BOPP Tapes</option>
+<option>Bubble Rolls</option>
+<option>Packaging Sheets</option>
+<option>Metal Blades</option>
+</select>
+</div>
+
+<div class="form-group">
+<label>Quantity Required</label>
+<input type="text" id="orderQty" placeholder="Example: 500 kg" required>
+</div>
+
+<div class="form-group">
+<label>Additional Requirements</label>
+<textarea placeholder="Describe your requirements here..."></textarea>
+</div>
+
+<div class="action-buttons">
+<button type="submit" class="btn-primary" style="border:none; cursor:pointer; font-family:'Poppins', sans-serif;">
+Submit via Email
+</button>
+
+<a href="tel:+919810602893" class="btn-secondary">
+Call Now
+</a>
+
+<a href="https://wa.me/919810602893" class="btn-primary">
+WhatsApp
+</a>
+</div>
+
+</form>
+
+<script>
+function handleOrderSubmission(event) {
+    event.preventDefault();
+    
+    const name = document.getElementById("orderName").value;
+    const product = document.getElementById("orderProduct").value;
+    const quantity = document.getElementById("orderQty").value;
+    
+    const emailSubject = encodeURIComponent(`KPI Quote Request - ${name}`);
+    const emailBody = encodeURIComponent(`Hello Kashmir Packaging Team,\n\nI would like to request a quotation:\n\nClient Name: ${name}\nProduct: ${product}\nQuantity: ${quantity}\n\nPlease review and get back to me with pricing.\n\nBest regards.`);
+    
+    window.location.href = `mailto:sudha308350@gmail.com?subject=${emailSubject}&body=${emailBody}`;
+}
+</script>
